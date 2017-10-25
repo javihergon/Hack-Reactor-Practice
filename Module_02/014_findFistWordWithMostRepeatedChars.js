@@ -1,7 +1,7 @@
 
 function findMaxRepeatCountInWord(word) {
   // Break up individual words into individual letters.
-  var letters = word.toLowerCase().split('');
+  var letters = word.split('');
   // Count the instances of each letter
   var count = {};
   letters.forEach(function(letter) {
@@ -27,7 +27,7 @@ function findFirstWordWithMostRepeatedChars(text) {
   var wordWithMaxRepeatCount = '';
 
   // Break up input text into words (space-delimited).
-  var words = text.toLowerCase().split(' ');
+  var words = text.split(' ');
   // For each word...
   words.forEach(function(word) {
     var repeatCountForWord = findMaxRepeatCountInWord(word);
@@ -42,4 +42,7 @@ function findFirstWordWithMostRepeatedChars(text) {
   return wordWithMaxRepeatCount;
 }
 
-findFirstWordWithMostRepeatedChars('These might be things that everyone already knows, but I just wanted to remind everyone of some things');
+(findMaxRepeatCountInWord('ooopeiaelskf'), 3, 'finds max repeated letters');
+assertEqual(findFirstWordWithMostRepeatedChars('Limit your space'), 'Limit', 'finds max repeats word when no other word has repeats');
+assertEqual(findFirstWordWithMostRepeatedChars('Limit your spaaace'), 'spaaace', 'finds max repeats word when other words have repeats');
+assertEqual(findFirstWordWithMostRepeatedChars('Limit your spaces'), 'Limit', 'finds 1st word with max repeats when there are ties');
